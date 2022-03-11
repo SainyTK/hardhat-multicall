@@ -8,6 +8,10 @@ import addressUtils from '../utils/addressUtils';
 
 async function main() {
 
+  const [signer] = await  ethers.getSigners();
+
+  console.log("Balance: ", await signer.getBalance(signer.address));
+
   // We get the contract to deploy
   const Multicall = await ethers.getContractFactory("Multicall");
   const multicall = await Multicall.deploy();
